@@ -1,3 +1,9 @@
+import Navbar from "@/components/ui/navbar";
+
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <Navbar></Navbar>
+    </main>
+  );
 }
