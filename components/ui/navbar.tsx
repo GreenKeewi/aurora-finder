@@ -3,17 +3,23 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 pt-0">
-      <div className="flex-1">
+    <div className="navbar bg-base-100 pt-0 justify-center">
+      <div className="flex-1 flex">
         <Link href="/">
-          <Image src="/logo.png" alt="Logo" width={300} height={500} />
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={300}
+            height={500}
+            className="w-40 sm:w-48 md:w-52 lg:w-56"
+          />
         </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link href="">
-              <button className="btn-ghost group relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 ">
+              <button className="btn-ghost group relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 sm:h-10 sm:px-3">
                 <span className="relative inline-flex overflow-hidden">
                   <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[120%] group-hover:skew-y-12">
                     Find Auroras
@@ -30,10 +36,10 @@ const Navbar = () => {
               <input
                 type="checkbox"
                 value="night"
-                className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1 scale-125"
+                className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1 scale-125 sm:scale-100"
               />
               <svg
-                className="stroke-base-100 fill-base-100 col-start-1 row-start-1 scale-125"
+                className="stroke-base-100 fill-base-100 col-start-1 row-start-1 scale-125 sm:scale-100"
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
                 height="14"
@@ -48,7 +54,7 @@ const Navbar = () => {
                 <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
               </svg>
               <svg
-                className="stroke-base-100 fill-base-100 col-start-2 row-start-1 scale-125"
+                className="stroke-base-100 fill-base-100 col-start-2 row-start-1 scale-125 sm:scale-100"
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
                 height="14"
