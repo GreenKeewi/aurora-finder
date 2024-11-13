@@ -1,5 +1,7 @@
 "use client";
 
+import axios from "axios";
+import * as cheerio from "cheerio";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -11,6 +13,8 @@ interface AuroraSighting {
 
 export default function Home() {
   const [sightings, setSightings] = useState<AuroraSighting[]>([]);
+  const [currentAlert, setCurrentAlert] = useState<string>("");
+  const [previousAlert, setPreviousAlert] = useState<string>("");
 
   useEffect(() => {
     async function fetchAuroraData() {
@@ -31,6 +35,18 @@ export default function Home() {
           })
         );
         setSightings(transformedData);
+
+        // Web scraping logic
+        const alertResponse = await axios.get(
+          "https://www.aurorawatch.ca/content/view/26/60/"
+        );
+        const $ = cheerio.load(alertResponse.data);
+        const currentAlertText = $("div.alert-current").text().trim();
+        const previousAlertText = $("div.alert-previous").text().trim();
+        console.log("Current Alert Text:", currentAlertText);
+        console.log("Previous Alert Text:", previousAlertText);
+        setCurrentAlert(currentAlertText);
+        setPreviousAlert(previousAlertText);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -75,6 +91,16 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <div className="mt-10">
+          <h3 className="text-xl font-bold text-center text-[#fe841d] mb-4">
+            Current Alert Status
+          </h3>
+          <p className="text-center">{currentAlert}</p>
+          <h3 className="text-xl font-bold text-center text-[#fe841d] mt-4 mb-4">
+            Previous Alert Status
+          </h3>
+          <p className="text-center">{previousAlert}</p>
+        </div>
       </section>
     </main>
   );
