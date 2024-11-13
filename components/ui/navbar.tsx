@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 pt-0">
       <div className="flex-1">
         <Link href="/">
           <Image src="/logo.png" alt="Logo" width={300} height={500} />
@@ -25,7 +25,7 @@ const Navbar = () => {
               </button>
             </Link>
           </li>
-          <li className="flex items-center">
+          <li className="flex justify-center">
             <label className="grid cursor-pointer place-items-center">
               <input
                 type="checkbox"
