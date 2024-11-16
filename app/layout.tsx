@@ -34,7 +34,7 @@ export default function RootLayout({
                     <a
                       href="https://github.com/GreenKeewi"
                       target="_blank"
-                      className="hover:text-blue-600"
+                      className="hover:text-orange-600"
                     >
                       <Github />
                     </a>
